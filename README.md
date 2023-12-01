@@ -1,36 +1,38 @@
 # Infiltrating-the-Government-in-an-Alternative-Universe
-Assignment 4 - Infiltrating the Government in an Alternative Universe
-First and foremost
-Here are some guidelines on what not to do during this assignment:
+# Assignment 4 - Infiltrating the Government in an Alternative Universe
 
-Spamming: Do not send excessive, irrelevant, or inappropriate messages or requests. This includes overloading the server with heavy traffic, sending repeated requests, or flooding the chat.
+## First and foremost
+Here are some guidelines on what **not** to do during this assignment:
 
-Destructive Behavior: Do not engage in any activities that could harm the systems you are working with, such as introducing malware, deleting files or databases, or disrupting services.
+1. **Spamming**: Do not send excessive, irrelevant, or inappropriate messages or requests. This includes overloading the server with heavy traffic, sending repeated requests, or flooding the chat.
 
-Illegal Activities: Do not engage in any illegal activities. This includes hacking into unauthorized areas, stealing data, violating privacy laws, or any other actions that are against the law.
+2. **Destructive Behavior**: Do not engage in any activities that could harm the systems you are working with, such as introducing malware, deleting files or databases, or disrupting services.
 
-Unethical Actions: Do not use the information gained during this assignment for unethical purposes. This includes blackmail, defamation, spreading false information, or any other actions that could harm individuals or organizations.
+3. **Illegal Activities**: Do not engage in any illegal activities. This includes hacking into unauthorized areas, stealing data, violating privacy laws, or any other actions that are against the law.
 
-Violation of Privacy: Respect all forms of privacy. Do not attempt to access personal information about individuals without their explicit consent.
+4. **Unethical Actions**: Do not use the information gained during this assignment for unethical purposes. This includes blackmail, defamation, spreading false information, or any other actions that could harm individuals or organizations.
 
-Harassment: Do not use any form of harassment or offensive language.
+5. **Violation of Privacy**: Respect all forms of privacy. Do not attempt to access personal information about individuals without their explicit consent.
 
-Plagiarism: All work submitted should be your own. Do not copy others' work without proper attribution.
+6. **Harassment**: Do not use any form of harassment or offensive language.
+
+7. **Plagiarism**: All work submitted should be your own. Do not copy others' work without proper attribution.
+
 Remember, the goal of this assignment is to learn and develop your skills in a safe and ethical manner. Clearly, you are no wizard if you mess up this.
 
-Description
+## Description
+
 In this assignment, you will be exploring the internet from an alternative universe. The Norwegian Government in this universe has stored state secrets about recent incidents that have been revealed through the media. Your task is to identify vulnerabilities in their systems and use them to gain access to these state secrets, which are rumored to be stored in a binary email database.
 
 There are many potential vulnerabilities to exploit, including side-channel vulnerabilities, buffer overflow vulnerable code, and XSS.
 
-Your journey begins here: https://regjeringen.uiaikt.no/Links to an external site. and https://github.com/uiaict/2023-ikt222-templateLinks to an external site.
-
- 
+Your journey begins here: `https://regjeringen.uiaikt.no/` and here `https://github.com/uiaict/2023-ikt222-template`
 
 Remember to document the information you find along the way. Use LaTeX to explain your findings. The final task is to reverse engineer the state secrets.
 
-All tasks should be solvable using Python. It is recommended to use poetry for this task. The recommended structure of your project is as follows:
+All tasks should be solvable using Python. It is recommended to use `poetry` for this task. The recommended structure of your project is as follows:
 
+```markdown
 code
    solutions
        attack_1
@@ -39,11 +41,16 @@ code
    pyproject.toml
    poetry.lock
    readme.md
+```
+There is also a devcontainer that has `almost` all tools needed. Other tools needed are Ghidra or IDA Free.
 
-Hints
-Vulnerable Function Used to Evaluate Password
-The following function is used to evaluate passwords in some parts of the system:
+## Hints
 
+### Vulnerable Function Used to Evaluate Password
+
+The following function is used to evaluate passwords:
+
+```c++
 int total_time = 0;
 
 if (a.length() != b.length()) {
@@ -57,17 +64,31 @@ for (size_t i = 0; i <= a.length(); ++i) {
     total_time++;
 }
 return total_time;
+```
 
-Intranet: Level 1
-Jonas Dahl frequently logs in to check his Wireguard credentials.
-Discord WEBHOOKS can be very useful here.
-Consider using the webhook to send data to yourself when Jonas Dahl logs in.
-Keep an eye out for information about Jonas' supervisor. She might have more access than Jonas.
-Intranet: Level 2
-You need to access the network on Wireguard. You'll retrieve this on Intranet: Level 1.
-nmap is a great tool for service discovery. Perhaps you can check which ports are open?
-SSH
-The SSH Server only accepts public-key authentication. You need to do something before accessing this server. What if we could overwrite the authorized_keys file somehow?
-Use ssh-rsa keys.
-Dropbox
-Consider how Dropbox could be used to gain access to SSH.
+### Intranet: Level 1
+
+- Jonas Dahl frequently logs in to check his Wireguard credentials.
+- Discord WEBHOOKS can be very useful here.
+- Consider using the webhook to send data to yourself when Jonas Dahl logs in.
+- Keep an eye out for information about Jonas' supervisor. She might have more access than Jonas.
+
+### Intranet: Level 2
+
+- You need to access the network on Wireguard. You'll retrieve this on Intranet: Level 1.
+- `nmap` is a great tool for service discovery. Perhaps you can check which ports are open?
+
+### SSH
+
+- The SSH Server only accepts public-key authentication. You need to do something before accessing this server. What if we could overwrite the `authorized_keys` file somehow?
+- Use ssh-rsa keys.
+
+### Internal Network:
+- 10.13.13.254 might have something interesting
+
+### Dropbox
+
+- Consider how Dropbox could be used to gain access to SSH.
+
+### Questions
+If you are stuck, please ask me for help / hints. I've strived towards finding a good balance between difficulty and advice.
