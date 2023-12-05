@@ -1,0 +1,9 @@
+[tool.poetry]
+name = "infiltrating-the-government-in-an-alternative-universe"
+version = "0.1.0"
+description = "Final assignment in IKT222-G23H"
+authors = ["Sivert Espeland Huseby", "Thomas Nesje Wiik"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
