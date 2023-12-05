@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "infiltrating-the-government-in-an-alternative-universe"
+name = "infiltrating_the_government_in_an_alternative_universe"
 version = "0.1.0"
 description = "Final assignment in IKT222-G23H"
 authors = ["Sivert Espeland Huseby", "Thomas Nesje Wiik"]
