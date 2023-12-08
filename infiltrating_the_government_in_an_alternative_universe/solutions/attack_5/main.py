@@ -5,7 +5,9 @@ import requests
 
 
 def path_travesal():
-    print("Initizalizing path traversal attack, and uploading your id_rsa.pub file...")
+    print("The fifth attack is a path traversal attack")
+    time.sleep(2)
+    print("Initiating attack and uploading your id_rsa.pub file if you give your permission...")
     time.sleep(2)
     print("This will allow you to ssh into the server")
     time.sleep(2)

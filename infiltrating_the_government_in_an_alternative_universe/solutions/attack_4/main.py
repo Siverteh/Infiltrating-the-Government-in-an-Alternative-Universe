@@ -4,7 +4,9 @@ import time
 
 
 def buffer_overflow():
-    print("Initiating buffer overflow attack...")
+    print("The fourth attack is a buffer overflow attack")
+    time.sleep(1)
+    print("Initiating...")
     time.sleep(2)
     print("Remember to connect to Wireguard before running this attack")
     time.sleep(2)
