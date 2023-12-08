@@ -1,3 +1,5 @@
+import time
+
 import requests
 
 
@@ -17,6 +19,7 @@ def try_password(password_guess, i):
 
 
 def find_password():
+    print("Initiating brute force attack...")
     # Password length is known to be based on manual testing 17
     password = 'aaaaaaaaaaaaaaaaa'
     characters = 'abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ0123456789!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
@@ -36,6 +39,12 @@ def find_password():
                 break
 
         i += 1
+        if i == 15:
+            break
+    print("Bug after 15 characters")
+    time.sleep(2)
+    print(f"Partial password found: {final_password}")
+    time.sleep(2)
+    print(f"Final password = {final_password}23")
+    time.sleep(2)
 
-
-find_password()
